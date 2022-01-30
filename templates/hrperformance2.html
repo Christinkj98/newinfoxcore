@@ -1,0 +1,264 @@
+{% extends 'sidebarnew.html'%}
+{%load static%}
+{%block content%}
+<style>
+  #myprofile{
+    margin-left: 0em;
+  }
+  .main{
+  /* background-color: white; */
+  border-radius: 15px;
+  width: 90%;
+  }
+  #date10{
+    display: inline;
+  }
+#firstbox{
+  background-color: white;
+  height: 160px;
+  float: right;
+  width: 79%;
+}
+#firstbox div{
+  padding-left: 5%;
+  float: left;
+}
+#firstbox1{
+  background-color: white;
+
+  float: left;
+  margin-left: 6%;
+  width: 75%;
+  margin-top:2%;
+}
+#firstbox1 div{
+  padding-left: 5%;
+  float: left;
+}
+#firstbox1 label{
+  margin-left: 2%;
+  margin-top: 1%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  color: #1076B9;
+  font-weight: 400;
+  font-size: 20px;
+}
+#adname{
+  /* padding-top: 14px; */
+  color: #58B7AA;
+  font-weight: 600;
+  /* max-width: 300px; */
+}
+#bigimage{
+  float: left;
+}
+#smallbox{
+  background-color: white;
+  width: 300px;
+  border-radius: 15px;
+  display: inline-flex;
+  float: right;
+  margin-left: 50px;
+  padding: 20px;
+}
+#smallbox h1{
+  margin-left: 15%;
+}
+#smallbox span{
+  color: #475151;
+}
+#boxes{
+  max-width: 75%;
+  float: right;
+  margin-right: 8%;
+  margin-top: 4.5%;
+}
+.Search{
+  margin-top: 2%;
+  padding-left: 3%;
+  padding-right:3%;
+  width: 120px;
+  background-color: white;
+  color: #2294ba;
+  box-shadow: 0px 3px 12px #2E2EBD;
+  border-radius:20px;
+  float: right;
+}
+#span{
+  width: 300px;
+  margin-left: 30px;
+}
+#l{
+  margin-left: 15%;
+}
+.container{
+    background-color: white;
+    height: 160px;
+    float: left;
+    width: 77%;
+    margin-left: 5%;
+
+  }
+  #names{
+    margin-left: 70px;
+    margin-top: 20px;
+  }
+  #des{
+    font-weight: 400;
+    margin-top: 10px;
+  }
+  #date{
+    margin-left: 30px;
+    color: #58B7AA;
+  }
+  #dept{
+    margin-left: 20px;
+  }
+  #appointment{
+    margin-left: 20px;
+  }
+  #designation1{
+    float: left;
+  }
+@media (max-width: 61.938em){
+  #date10{
+    display:block;
+    margin-left: -14px;
+     }
+    #date11{
+     position: relative;
+     top:-23px;
+     left:113px;
+    } 
+  #firstbox{
+    background-color: white;
+    height: 160px;
+    float: left;
+    margin-left: 40%;
+    width: 79%;
+    overflow: auto;
+  }
+  #firstbox div{
+    padding-left: 5%;
+    float: left;
+  }
+  .container{
+    background-color: white;
+    height: 300px;
+    
+    width: 100%;
+    /* margin-left: 50%; */
+    /* overflow: auto; */
+  }
+  #span{
+    /* width: 300px; */
+    /* margin-left: 5px; */
+  }
+  #firstbox1{
+    background-color: white;
+    height: auto;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 550px;
+    margin-top:1%;
+  }
+  #firstbox1 label{
+    margin-left: 1%;
+    margin-top: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    color: #1076B9;
+    font-weight: 400;
+    font-size: 15px;
+  }
+   #l{
+    margin-left: 1%;
+  }
+  .Search{
+    margin-top: 5%;
+    padding-left: 3%;
+    padding-right:3%;
+    max-width: 90px;
+    background-color: white;
+    color: #2294ba;
+    box-shadow: 0px 3px 12px #2E2EBD;
+    border-radius:20px;
+    float: right;
+  }
+  #col{
+    width:120%;
+  }
+  #adname{
+    padding-top: 14px;
+    color: #58B7AA;
+    font-weight: 600;
+    max-width: 300px;
+  }
+
+
+  #names{
+    margin-left: 70px;
+    margin-top: 20px;
+  }
+  #des{
+    font-weight: 400;
+    margin-top: 30%;
+  }
+  #date{
+    margin-top:20px;
+    margin-left: 20px;
+    color: #58B7AA;
+  }
+  #dept{
+    margin-left: 20px;
+  }
+  #appointment{
+
+    margin-left: 10px;
+  }
+  #designation1{
+    width: 600px;
+   
+  }
+
+}
+  </style>
+     
+<div><label id="myprofile">PERFORMANCE</label>
+  <div class="container shadow p-3 bg-white rounded main">
+    <div class="row">
+      {% for pa in emp %}
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+        <img src="{{ pa.employeeimage.url }}" class="rounded-circle img-fluid" width="140" height="140"  id="bigimage">
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+        <h3 id="adname">{{ pa.name }}</h3>
+        <h4 style="font-weight: 400">{{ pa.designation }}</h4>
+        <h5 style="font-weight: 400">
+          <span style="color: #58B7AA">Departments</span>&nbsp;&nbsp;&nbsp;{{ pa.department }}<span id="date10" style="color: #58B7AA;">&nbsp;&nbsp;&nbsp;Joining date</span><span id="date11">&nbsp;&nbsp;&nbsp;{{ pa.dateofappoinment}}</span></h5>
+      </div>
+    </div>
+  
+  
+  </div> 
+  
+    
+  
+          
+<div id="firstbox1" class="shadow p-3 mb-5 bg-white rounded">
+  <form action="hrperinsert?empid={{pa.id}}" method="post">
+    {% csrf_token %}
+  <label style="width:200px;">Punctuality</label><input type="text" name="punctuality" style="height: 30px; width:70px;">
+  <label id="l" style="width:200px; ">Creativity</label><input type="text" name="creativity" style="height: 30px; width:70px;"><br>
+  <label style="width:200px;">Performance</label><input type="text" name="perfo" style="height: 30px; width:70px;">
+  <label id="l" style="width:200px; ">Extra work</label><input type="text" name="extra" style="height: 30px; width:70px;"><br>
+  <label style="width:200px;">Timely Completion</label><input type="text" name="tim" style="height: 30px; width:70px;">
+  <label id="l" style="width:200px;">Attendance</label><input type="text" name="attend" style="height: 30px; width:70px;"><br>
+  <input type="hidden" id="leavId" name="team_id" value={{ pa.id }}>
+  <a href="hrperformance1"><button type="submit" class="btn btn-default Search ">Save</button></a>
+{% endfor %}
+</form>
+</div>
+{%endblock%}

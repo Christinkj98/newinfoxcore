@@ -1,0 +1,99 @@
+{% extends 'sidebarnew.html'%}
+{%load static%}
+{%block content%}
+<style>
+   #myprofile{
+    margin-left: 0em;
+  }
+ #firstbox1{
+  background-color: white;
+  height: 275px;
+  
+  max-width:550px ;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4%;
+
+}
+#container{
+  width: 100%; 
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 50vh;
+ 
+}
+
+@media (max-width: 61.938em){
+  /* #firstbox1{
+    background-color: white;
+    height: auto;
+    float: left;
+
+    margin-left:10%;
+    margin-top: 3%;
+    overflow:hidden;
+  }
+  #container{
+     width: 100%;
+     margin-left: 0%; 
+     
+     
+     
+  } */
+}
+  </style>
+      
+<div><label id="myprofile">PERFORMANCE</label>
+    <div id="firstbox1">
+    <script>
+        var config = {
+          type: 'pie',
+          data: {
+            datasets: [{
+              data: {{ data|safe }},
+              backgroundColor: [
+                '#e21014', '#f46c22', '#009c3b', '#FFD700', '#00EE00','#FF0000'
+              ],
+              label: 'Population'
+            }],
+            labels: {{ labels|safe }}
+          },
+          options: {
+            responsive: true
+          }
+        };
+        window.onload = function() {
+          var ctx = document.getElementById('pie-chart').getContext('2d');
+          window.myPie = new Chart(ctx, config);
+        };
+      </script>
+      <div id="container">
+        <canvas id="pie-chart"></canvas>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+      <script>
+        var config = {
+          type: 'pie',
+          data: {
+            datasets: [{
+              data: {{ data|safe }},
+              backgroundColor: [
+                '#e21014', '#f46c22', '#009c3b', '#FFD700', '#00EE00','#FF0000'
+              ],
+              label: 'Population'
+            }],
+            labels: {{ labels|safe }}
+          },
+          options: {
+            responsive: true
+          }
+        };
+        window.onload = function() {
+          var ctx = document.getElementById('pie-chart').getContext('2d');
+          window.myPie = new Chart(ctx, config);
+        };
+    </script>
+</div>
+</div>
+{%endblock%}
+

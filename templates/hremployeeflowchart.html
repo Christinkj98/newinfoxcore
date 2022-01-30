@@ -1,0 +1,73 @@
+{% extends 'sidebarnew.html'%}
+{%load static%}
+{%block content%}
+<style>
+   #myprofile{
+    margin-left: 0em;
+  }
+#box2 {
+    padding: 1% 5% 1% 5%;
+    background-color: white;
+    border-radius: 20px;
+    
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
+
+  #box2 h5,
+  #box2 img {
+    float: left;
+    margin-right: 20px;
+  }
+
+  
+
+  @media (max-width: 61.938em) {
+    #box2 {
+      
+      margin-top: 3%;
+      
+    } 
+  }
+  </style>
+      
+<div><label id="myprofile">EMPLOYEES</label></div>
+
+      {% for st in emp %}
+      <div id="box2" class="shadow p-3 bg-white">
+        <div class="container">
+          <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">  
+        <img src="{{ st.employeeimage.url }}"  width="40" height="40">
+        </div>
+        <div class=" col-sm-4 col-md-4 col-lg-4">  
+          <label style="font-size: 20px;">{{ st.name }}</label>
+
+        </div>
+        <div class=" col-sm-4 col-md-4 col-lg-4">  
+          <span style="font-size: 20px;">{{ st.designation }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+      {% endfor %}
+    
+  
+
+
+
+             <!-- {% for st in emp %}
+
+  <div id="firstbox" class="shadow p-3 bg-white" >
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ st.employeeimage.url }}"  width="40" height="40">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 20px;margin-left: 10px;">{{ st.name }}</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="font-size: 20px;margin-left: 10px;">{{ st.designation }}</label>
+
+  </div>
+          {% endfor %} -->
+
+
+{%endblock%}

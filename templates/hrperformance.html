@@ -1,0 +1,188 @@
+{% extends 'sidebarnew.html'%}
+{%load static%}
+{%block content%}
+<style>
+ #myprofile{
+    margin-left: 0em;
+  }
+ #container{
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+ }
+.container label{
+  /* margin-left: 75px; */
+  padding-top: 14px;
+  color: #58B7AA;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 30px;
+  width: 200px; 
+}
+
+.Search{
+  margin-top: 4%;
+  margin-left: 26em;
+  
+  
+  /* padding-left: 3%;
+  padding-right: 3%; */
+}
+#box2{
+  padding: 0.8% 5% 0.8% 4%;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 0.5%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+  height: 100%;
+}
+#box2 h5,#box2 img{
+  float: left;
+  margin-right: 78px;
+  color: #393D3D;
+}
+h5{
+  font-weight: 400;
+  margin-top: 10px;
+  color:  #393D3D;
+}
+
+#box2 img{
+  margin-top: 4px;
+}
+
+
+.drop{
+    height: 40px;
+    width:40vh;
+    margin-left:0%;
+    border-radius: 5px;
+    margin-top: 0px;
+
+}
+select{
+  width: 20%;
+}
+/* #cont1{
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+#hiddendiv{
+  padding: 10px;
+  height: auto;
+  width: 100%;
+  
+
+}
+
+#hidden{
+  float: right;
+  width: 90%;
+  margin-right: 3%;
+  height: 15vh;
+}
+ @media (max-width: 61.938em){
+  #btnSearch{
+      margin-top: 3%;
+      margin-left: 10em;
+      
+      padding-right: 3%;
+      padding-left: 3%;
+      
+    } 
+    #hidden{
+    float: right;
+    margin-bottom: 30%;
+    width: 100%;
+    height: 50vh;
+  
+    
+  }
+  #hiddendiv{
+    margin-top: 2%;
+    height: auto;
+    width: 100%;
+  
+  }
+    
+  
+ 
+} 
+</style>
+      
+<div><label id="myprofile">PERFORMANCE</label></div>
+
+<div class="container shadow p-4 mb-4 bg-white rounded" id="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-lg-12">  
+      <div>
+        <label id="label">Select Department </label>&nbsp;&nbsp;&nbsp;
+        <select id="regdetailsdept" name="regdetails" class="drop" required>
+          <option value=""> </option>
+          {% for regdetails in edepartments %}
+          <option value="{{ regdetails.department}}">{{ regdetails.department }}</option>
+          {% endfor %}
+        </select>
+      </div><br>
+      <div>
+        <label id="label">Select Designation </label>&nbsp;&nbsp;&nbsp;
+        <select id="regdetailsDesig" name="regdetails" class="drop" required>
+
+        </select><br>
+        <button id="btnSearch" type="button" class="btn btn-primary Search" >Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="hidden">
+  <div id="hiddendiv">
+
+  </div>
+</div>
+<!-- <div id="hiddendiv">
+</div> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $("#regdetailsdept").change(function () {
+         const url = $("#personForm").attr("data-cities-url"); 
+        const deptId = $(this).val();
+
+        $.ajax({
+            url: 'hrperdesi',
+            data: {
+                'dept_id': deptId
+            },
+            success: function (data) {
+                $("#regdetailsDesig").html(data);
+                console.log(data);
+            }
+        });
+
+    });
+    $("#btnSearch").click(function () {
+         const url = $("#personForm").attr("data-cities-url"); 
+        const deptId = $("#regdetailsdept").val();
+        const desgId = $("#regdetailsDesig").val();
+
+
+        $.ajax({
+            url: 'hrper',
+            data: {
+                'dept_id': deptId,
+                'desig_id':desgId
+            },
+            success: function (data) {
+                $("#hiddendiv").html(data);
+            }
+        });
+    });
+  function showDiv() {
+      document.getElementById('hiddendiv').style.display = "block";
+  }
+</script>
+</div>
+{%endblock%}

@@ -1,0 +1,51 @@
+{% extends 'adwaith_index.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+  #smallbox{
+    max-width: 250px;
+  }
+</style>
+  <div class="container-fluid" id="page-content-wrapper" style="float: right; padding-left: auto;margin-right: auto;">
+  
+    <div class="col">
+      <label id="myprofile" style="text-align: left;">MARKETING</label>
+    </div>
+    <div style="margin-top: 30px;">
+      <div class="row">
+        <div class="col md-4">
+          <li id="smallbox" class="col shadow p-3 mb-5 bg-white d-flex" style="border-radius: 15px;"><a href="MANmarkProductlist">
+            <h5 style="color:#58B7AA">
+              <span>Products</span>
+            </h5>
+            <div>
+             <img class="row-sm" src="{% static 'Group24.png' %}" width="130" height="80" style="margin-left: 110px">
+             </div></a>
+          </li>
+        </div>
+        <div class="col md-4">
+          <li id="smallbox" class="col shadow p-3 mb-5 bg-white d-flex" style="border-radius: 15px;"><a href="MANmarkRecriutmentlist">
+            <h5 style="color:#58B7AA">
+              <span>Recriutments</span>
+            </h5>
+            <div>
+             <img class="row-sm" src="{% static 'Group57.png' %}" width="100" height="80" style="margin-left: 120px">
+             </div></a>
+            </li>
+        </div>
+        <div class="col md-4">
+          <li id="smallbox" class="col shadow p-3 mb-5 bg-white d-flex" style="border-radius: 15px;"><a href="MANmarkserviceslist">
+            <h5 style="color:#58B7AA">
+              <span>Services</span></h5>
+              <div>
+             <img class="row-sm" src="{% static 'Group18.png' %}" width="100" height="80" style="margin-left: 110px">
+             </div></a>
+          </li>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  {% endblock %}

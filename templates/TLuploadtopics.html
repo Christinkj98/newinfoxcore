@@ -1,0 +1,178 @@
+{% extends 'indextl.html'%}
+{% load static %}
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'main.css'%}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>Infox core</title>-->
+  {% block content %}
+<style> 
+
+#myprofile{
+  margin-left: 0rem;
+}
+#firstbox{
+  background-color: white;
+  height: 65vh;
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 20px;
+  max-width: 600px;
+}
+#firstbox div{
+  float: left;
+}
+#firstbox label{
+  
+  padding-top: 14px;
+  color: #58B7AA;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 20px;
+  width: 200px;
+}
+.Search{
+  margin-top: 4%;
+  float: right;
+  margin-right: 10%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+thead{
+  color: #58B7AA;
+}
+table{
+  float: left;
+  margin-left: 65%;
+  margin-top: 10%;
+}
+
+#box2{
+  padding: 1% 5% 1% 5%;
+  background-color: white;
+  border-radius: 14px;
+  margin-top: 2vh;
+  max-width: 600px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+
+
+}
+
+#box2 h5 {
+    font-size: 20px;
+    font-weight: normal;
+    float: left;
+    margin-right: 40px;
+    padding-left: 80px;
+}
+#box2 img{
+  margin-top: 5px;
+}
+input{
+  width: 450px;
+}
+
+@media (max-width: 61.938em){
+  #firstbox{
+  background-color: white;
+  height: 65vh;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 20px;
+}
+input{
+  width: 100%;
+}
+#hiddendiv{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+}
+
+  </style>
+      </head>
+<body>
+<!-- <div  id="nav" class="container-fluid">
+        <a class="one" id="infox"><b>iNFOX</b></a>
+        <a class="two" id="core"><b>Core</b></a>
+        <a class="three" id=""></a>
+          {% for t in mem %}
+    {% if forloop.first %}{% endif %}
+        <span class="four">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ t.employeeimage.url }}" class="rounded-circle"  width="50" height="50" id="img2"></span>
+{% endfor %}
+</div>
+<div class="sidenav">
+  <a href="tl" class="col" id="sidebox1">MY PROFILE</a>
+  <a href="tltasks" class="col" id="sidebox1">TRAINEES</a>
+  <a href="tlprojects" class="col" id="sidebox1">TASKS</a>
+  <a href="tlperformance" class="col" id="sidebox1">PROJECTS</a>
+  <a href="tlemployeess" class="col" id="sidebox1">ATTENDANCE</a>
+  <a href="tlreportissues" class="col" id="sidebox1">REPORTED ISSUES</a>
+  <a href="tlPayments1" class="col" id="sidebox1">PAYMENTS</a>
+  <a href="tlattendance2" class="col" id="sidebox1">APPLY LEAVE</a>
+</div> -->
+<div><label id="myprofile">UPLOAD TOPICS</label>
+<div id="firstbox" class="shadow p-3 bg-white">
+<form action="tluploadtopicsadd" method="post">
+    {% csrf_token %}
+    <div class="">
+      <label>TOPIC</label>&nbsp
+      <input type="text" name="topic" id="regfd"  required>
+    </div>
+    <div class="">
+      <label>STARTING DATE</label>&nbsp
+      <input type="date" name="date" id="regfd"  required>
+    </div>
+    <div class="">
+      <label>ENDING DATE</label>&nbsp
+      <input type="date" name="duedate" id="regtd" required>
+    </div>
+    <button id="btnSearch" type="submit" class="btn btn-primary Search"  >UPLOAD</button>
+</form>
+</div>
+
+</div>
+<div id="hiddendiv">
+  {% for hrassignedtasks in tr %}
+  {% if forloop.first %} {% endif %}
+      <div id="box2" class="shadow p-3 bg-white">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-2 col-md-2">
+              <img src="{% static 'circle.png'%}" width="30" height="30">
+            </div>
+            <div class="col-lg-4 col-md-4">
+              <h5>{{ hrassignedtasks.topic }}</h5>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <h5><span>{{hrassignedtasks.date}}-{{hrassignedtasks.duedate}}</span></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
+<!-- </body>
+</html> -->

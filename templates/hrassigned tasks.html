@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{%extends 'indexAmal.html'%}
+{%load static%}
+{%block content%}
+<style>
+    #myprofile{
+  margin-left: 0rem;
+  opacity: 0.36;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 2.2% 2% 1.5% 3%;
+  width: 79%;
+}
+
+
+</style>
+
+
+<label id="myprofile">ASSIGNED TASK</label>
+<div id="box">
+  {% for hrassignedtasks in names %}
+    {% if forloop.first %} {% endif %}
+    <a href="hrassigned1?empid={{ hrassignedtasks.id }}" style="text-decoration:none;">
+      <div class="container shadow p-3 mt-3  bg-white" style="border-radius:30px; max-width: 650px;">
+        <div class="row">
+          <div class="col-lg-1 col-md-1 col-sm-1" >
+            <img src="{% static 'circle.png'%}" width="20" height="20" >     
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-2" style="opacity:0.36;font-size: 20px;font-weight: 600;">
+            {{ hrassignedtasks.task }}
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-2" style="opacity: 0.36;color: black;font-size: 20px;font-weight: 600;">
+            {{ hrassignedtasks.employee }}
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4" style="opacity: 0.36;color: black;font-size: 20px;font-weight: 600;">
+            {{ hrassignedtasks.duedate}}
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3" style="opacity: 0.36;color: black;font-size: 20px;font-weight: 600;">
+            {{ hrassignedtasks.submited}}
+          </div>
+        </div>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+      
+
+
+      
+  
+  
+</div>
+
+</body>
+</html>
+{%endblock%}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Marketing Module</title>
+        <!-- Favicon-->
+		
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/static/css/styles_bibin.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/static/main_bibin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+    </head>
+    <body>
+        <div  id="nav" class="container-fluid">
+            <button class="btn " id="sidebarToggle"><i style="color: white;" class="fa fa-bars" aria-hidden="true"></i></button>
+            <a class="one" id="infox"><b>iNFOX<sub style="font-size: 1.25rem;"> Core</sub></b></a>
+            <!-- <a class="two" id="core"><b>Core</b></a> -->
+
+            <a class="three" id=""></a>
+            <!-- {% for t in mem %}
+                {% if forloop.first %}{% endif %} -->
+                    <span class="four"><img style="float: right;" src="../static/icon.png" class="rounded-circle"  width="50" height="50" id="img2"></span>
+                <!-- {% endfor %} -->
+        </div>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom"></div>
+                <div class="list-group list-group-flush">
+                    <a  class="list-group-item list-group-item-action list-group-item-light p-3" href="MANmanagerprofile">MY PROFILE</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANtask">TASKS</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANprojects">PROJECTS</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANperformance">PERFORMANCE</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANemployees">EMPLOYEES</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANtrainees">TRAINEES</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANreportedissues">REPORTED ISSUES</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANmarketing">MARKETING</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANPayments">PAYMENTS</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANmanageHR">MANAGE HR</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANattendance">ATTENDANCE</a>
+                </div>
+
+            </div>
+
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    {% block content %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script>window.addEventListener('DOMContentLoaded', event => {
+
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+        //     document.body.classList.toggle('sb-sidenav-toggled');
+        // }
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+        });
+    }
+
+});</script>
+    </body>
+</html>

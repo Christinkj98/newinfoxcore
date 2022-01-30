@@ -1,0 +1,58 @@
+{% extends 'adwaith_index.html'%}
+      {% load static %}
+{% block content%}
+<style>
+    #myprofile{
+  margin-left: 0rem;
+}
+.card{
+  /* margin-bottom: 10px; */
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+#firstbox{
+  background-color: white;
+  height: auto;
+ 
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15vh;
+  border-radius: 5px;
+ 
+}
+.img{
+  margin-left: 8%;
+  margin-right: 8%;
+}
+.succesfully{
+  color: #19688F;
+  font-size: 25px;
+  font-weight: 400;
+  margin-left: 8%;
+}
+@media(max-width:61.938em){
+
+  #firstbox{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+  </style>
+    
+
+<div><label id="myprofile">Assign Work</label>
+<div id="firstbox" class="shadow p-3 bg-white">
+  <div class="row">
+<div class="col-sm-3">
+  <img class="img" src="{% static 'notification.png' %}" width="120" height="120" style="margin-right: 1%"></div>
+<div class="col-sm-9">
+  <label style="margin-top: 5%" class="succesfully">Work assigned succesfully</label>
+</div></div>
+</div>
+</div>
+{% endblock %}

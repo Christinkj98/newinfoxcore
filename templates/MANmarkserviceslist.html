@@ -1,0 +1,101 @@
+{% extends 'adwaith_index.html' %}
+{% load static %}
+{% block content %}
+<style>
+    #myprofile{
+  margin-left: 0rem;
+}
+  .card{
+  /* margin-bottom: 10px; */
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+}
+  #box2{
+  padding: 1% 5% 1% 5%;
+  background-color: white;
+  border-radius: 20px;
+  
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+#box2 h5,#box2 img{
+  float: left;
+  margin-right: 30px;
+}
+h5{
+  font-weight: 400;
+  margin-top: 10px;
+  color: black;
+}
+#hiddendiv{
+  height: auto;
+  width: 75%;
+  float: right;
+
+}
+#box2 img{
+  margin-top: 15px;
+}
+@media(max-width:61.98em){
+
+  .card{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+  }
+}
+
+
+  </style>
+      </head>
+<body>
+
+ <div><label id="myprofile">SERVICES</label>
+ <!-- <div id="hiddendiv">
+     {% for s in serv %}
+         {% if forloop.first %}{% endif %}
+    <a href="MANmarkServiceDetails?serviceid={{ s.id }}"><div id="box2" class="shadow bg-white">
+    <img src="{% static 'circle1.png' %}" width="20" height="20">
+    <h5 style="color:#4ec3c7;width: 250px">{{s.service }}</h5>
+    <h5 style="width: 50px">Payment</h5>
+    <h5 style="color:#4ec3c7;width: 60px">{{ s.payment  }}</h5>
+    <h5 style="width: 30px">Date</h5>
+    <h5 style="color:#4ec3c7;width: 120px">{{ s.date }}</h5>
+  </div></a>
+      {% endfor %} -->
+      <div class="container-fluid">
+        {% for s in serv %}
+        <div class="md-6">
+          <a style="text-decoration: none;" href="MANmarkServiceDetails?serviceid={{ s.id }}">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col d-flex flex-row">
+                  <img src="{% static 'circle1.png' %}" width="20" height="20" style="margin-top: 15px; margin-right: 6px;">
+                 <h5 style="color:#4ec3c7;">{{ s.service }}</h5>
+                </div>
+                <div class="col d-flex flex-row">
+                  <h5 style="margin-right: 5px;">Payment: </h5>
+                  <h5 style="color:#4ec3c7;">{{ s.payment }} </h5>
+                </div>
+                <div class="col d-flex flex-row">
+                  <h5 style="margin-right: 5px;">Date: </h5>
+                  <h5 style="color:#4ec3c7;">{{ s.date }}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        </div>
+        {% endfor %}
+        </div>
+{% endblock %}
+</body>

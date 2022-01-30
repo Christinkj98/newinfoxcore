@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Simple Sidebar - Start Bootstrap Template</title>
+        <!-- Favicon-->
+		
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/static/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <style>
+      #myprofile{
+        opacity: 0.36;
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        margin-left: 75px;
+        padding: 2.2% 2% 1.5% 3%;
+        width: 79%;
+    }
+      #boxess{
+        max-width: 75%;
+        float: left;
+        margin-left: 87%;
+      }
+      #smalbox{
+        background-color: white;
+        width: 350px;
+        border-radius: 15px;
+        float: left;
+        margin-left: 70px;
+        border-width: 0px;
+        margin-top: 120px;
+      }
+      .imgups{
+        display: flex;
+        margin-left:120px ;
+        margin-bottom: 4%;
+        margin-top: 10%;
+      }
+      @media screen and (max-width: 61.938em){
+        #myprofile{
+        opacity: 0.36;
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        margin-left: 11s5px;
+        padding: 2.2% 2% 1.5% 3%;
+        width: 79%;
+    }
+        #boxess{
+          max-width: 30%;
+          float: left;
+          margin-left: -10%;
+        }
+        #smalbox{
+          background-color: white;
+          border-radius: 15px;
+          float: left;
+          border-width: 0px;
+          margin-top: 120px;
+        }
+        .imgups{
+          display: flex;
+          margin-left: 120px ;
+          margin-bottom: 4%;
+          margin-top: 10%;
+        }
+      }
+        </style>
+    <body>
+        <div  id="nav" class="container-fluid">
+            <button class="btn " id="sidebarToggle"><i style="color: white;" class="fa fa-bars" aria-hidden="true"></i></button>
+            <a class="one" id="infox"><b>iNFOX<sub style="font-size: 1.25rem;"> Core</sub></b></a>
+            <!-- <a class="two" id="core"><b>Core</b></a> -->
+
+            <a class="three" id=""></a>
+            <!-- {% for t in mem %}
+                {% if forloop.first %}{% endif %} -->
+                    <span class="four"><img style="float: right;" src="{{ t.employeeimage.url }}" class="rounded-circle"  width="50" height="50" id="img2"></span>
+                <!-- {% endfor %} -->
+        </div>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            
+            {% if count == 0 %}
+            <div class="border-end bg-white" id="sidebar-wrapper">
+              <div class="sidebar-heading border-bottom"></div>
+              <div class="list-group list-group-flush">
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANmanagerprofile">MY PROFILE</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANtask">TASKS</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANprojects">PROJECTS</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANperformance">PERFORMANCE</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANemployees">EMPLOYEES</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANtrainees">TRAINEES</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANreportedissues">REPORTED ISSUES</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANmarketing">MARKETING</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANPayments">PAYMENTS</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANmanageHR">MANAGE HR</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANattendance">ATTENDANCE</a>
+              </div>
+          </div>
+          {% else %}
+            <div class="border-end bg-white" id="sidebar-wrapper">
+              <div class="sidebar-heading border-bottom"></div>
+              <div class="list-group list-group-flush">
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANmanagerprofile">MY PROFILE</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANtask">TASKS</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANprojects">PROJECTS</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANperformance">PERFORMANCE</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANemployees">EMPLOYEES</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANtrainees">TRAINEES</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANreportedissues">REPORTED ISSUES</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANmarketing">MARKETING</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANPayments">PAYMENTS</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANmanageHR">MANAGE HR</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="MANattendance">ATTENDANCE</a>
+              </div>
+            </div>
+            {% endif %}
+              
+            {% block body %}
+              <main class="ps-0 ps-md-5 flex-grow-1">
+                <div class="row">
+              
+                <div class="mt-4 ml-5" style="opacity: 0.36;color: black;font-size: 20px;font-weight: 600;"><span class="">ASSIGNED TASKS</span></div></div>
+                <div class="row mt-5">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                  
+                <div class="container shadow bg-white " style="border-radius:20px; max-width: 450px;">
+            
+                 <div class="row pt-5 pb-3">
+                  
+                  <div class="col-md-12 col-sm-12 col-lg-12"><h5 class="">Task assigned succesfully</h5>
+                  
+                    <img src="{% static 'Group1.png' %}" width="100" height="100" style="float: right;">
+                  </div></div></div>
+                
+              </div></div class="col-md-3"></div>
+              </div>
+              </main>
+            {% endblock %}
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script>window.addEventListener('DOMContentLoaded', event => {
+
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+        //     document.body.classList.toggle('sb-sidenav-toggled');
+        // }
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+        });
+    }
+
+});</script>
+    </body>
+</html>

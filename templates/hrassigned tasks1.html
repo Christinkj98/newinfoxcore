@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{%extends 'indexAmal.html'%}
+{%load static%}
+{%block content%}
+<style>
+  #myprofile{
+  margin-left: 0rem;
+}
+  #box{
+    border-radius:10px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    padding: 5vh;
+
+  }
+</style>
+ <label id="myprofile">ASSIGNED TASKS</label>
+<div id="box" class="shadow  bg-white">
+  {% for hr in names %}
+  {% if forloop.first %} {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <div class="text-info" style="opacity: 0.70;font-size:17px;">
+          TASK
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8 " style="opacity: 0.70;font-size:17px;">
+        {{hr.task}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4" >
+        <div class="text-info" style="opacity: 0.70;font-size:17px;">
+          DATE 
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8" style="opacity: 0.70;font-size:17px;">
+        {{hr.date}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <div class="text-info" style="opacity: 0.70;font-size:17px;">
+          DUE&nbsp;DATE
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8" style="opacity: 0.70;font-size:17px;">
+        {{hr.duedate}}
+      </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <form method="POST" action="hrGiveTaskRemind">
+          {%csrf_token%}
+          <input type="hidden" id="leavId" name="team_id" value={{hr.id }}>
+          <input style="float: right;"  type="submit" value="Remind" name="status" class="btn btn-primary Search">
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</body>
+</html>{%endblock%}

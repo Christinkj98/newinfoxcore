@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coreapp</title>
+    <link href="/static/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+
+<style>
+body{
+        background-image: url("/static/intern.jpg");
+    }
+.row{
+    margin-top: 2vh;
+}
+.container{
+    margin-top: 5vh;
+}
+#myprofile{
+    margin-left: 0rem;
+    color: turquoise;
+    opacity: 1;
+}
+input{
+    border-width: 0px 0px 2px 0px;
+    border-color: yellow;
+    background-color: transparent;
+    max-width: 300px;
+    text-align: center;
+    color: white;
+}
+label{
+    color: turquoise;
+}
+.col-lg-3{
+    margin-top: 5vh;
+}
+
+</style>
+<body>
+    <div>
+        <label id="myprofile">Internship Certificate</label> 
+        {% for i in mem%}
+            <form action="admin_intern_detailupdate?id={{i.id}}" method="post" enctype="multipart/form-data">
+                {% csrf_token%}
+                <div class="container text-center" >
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <img src="{{media_url}}{{ i.profile_pic }} "width="150" height="150">
+                        </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label>Reg_Date</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="regdate" value="{{i.reg_date|date:'Y-m-d'}}">
+                        </div>
+                        <div class="col-lg-3">
+                            <label>Full Name</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="fullname" value="{{i.fullname}}">
+                        </div>
+                    </div>
+                    <div class="row">  
+                        <div class="col col-lg-3">
+                            <label>Platform</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="platform"value="{{i.platform}}">
+                        </div>
+                        <div class="col-lg-3">
+                            <label>Rating</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="rating"value="{{i.rating}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label>Start Date</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="startdate"value="{{i.start_date}}">
+                        </div>
+                        <div class="col-lg-3">
+                            <label>End Date</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="enddate"value="{{i.end_date}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="email"value="{{i.email}}">
+                        </div>
+                        <div class="col-lg-3">
+                            <label>Guide</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="guide"value="{{i.guide}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label>Hr Manage</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" name="hrmanager"value="{{i.hrmanager}}">
+                        </div>
+                        <div class="col-lg-3">
+                            <label>To verify</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <img src="{{media_url}}{{ i.qr }}" width="150" height="150">
+                        </div>
+                        
+                    </div>
+                    
+                </div> 
+
+            </form>       
+        {% endfor %}
+
+        
+    </div>
+
+</body>
+</html>

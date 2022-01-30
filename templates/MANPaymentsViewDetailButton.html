@@ -1,0 +1,104 @@
+{% extends 'adwaith_index.html' %}
+{% block content %}
+  {% load  static %}
+
+<style>
+    #myprofile{
+  margin-left: 0rem;
+}
+.card{
+  /* margin-bottom: 10px; */
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  max-width: 550px;
+  margin-left:auto;
+  margin-right: auto;
+}
+#hiddendiv{
+  height: auto;
+  width: 75%;
+  float: right;
+
+}
+
+#firstbox{
+  background-color: white;
+  height: auto;
+  float: right;
+  width: 70%;
+  margin-right: 5%;
+  border-radius: 20px;
+
+}
+#firstbox div{
+  float: left;
+}
+#firstbox label{
+  margin-left: 20px;
+  padding-top: 14px;
+  color: #58B7AA;
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 20px;
+  width: 200px;
+}
+.Search{
+  margin-top: 3%;
+  float: right;
+  margin-right: 15%;
+  padding-left: 3%;
+  padding-right: 3%;
+  width: 100px;
+}
+thead{
+  color: #58B7AA;
+}
+table{
+  float: left;
+  margin-left: 20%;
+  margin-top: 10%;
+}
+/* .payslipform{
+
+} */
+@media(max-width:61.938em){
+  .card{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+  </style>
+      </head>
+<body>
+
+<div class="container-fluid">
+  <label id="myprofile">PAYMENTS</label>
+  <div class="card shadow">
+    <div class="card-body">
+        <div class="form-group">
+          <form action="MANpayments33" method="get">
+          <label style="font-size: 21px;color: #475151">Select month to see the salary slip</label>
+          <input type="date" class="form-control" name="birthday">
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Search</button>
+      </form>
+    </div>
+    </div>
+
+<!-- <div><label id="myprofile">PAYMENTS</label>
+<div id="firstbox" class="shadow p-3 bg-white">
+    <form action="MANpayments33" method="get">
+    <div class="row">
+    <label style="width: 355px;font-size: 21px;color: #475151">Select month to see the salary slip</label>
+    <input type="date" name="birthday" style="width: 400px;height: 40px;margin-top: 30px">
+    </div>
+        <button type="submit" class="btn btn-primary Search" >Search</button>
+  
+    </form>
+</div>
+</div> -->
+{% endblock %}
+</body>
+</html>

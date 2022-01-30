@@ -1,0 +1,70 @@
+
+<form method="post" action="tlempattend" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+  <div id="firstbox2" class=" conatiner shadow bg-white">
+    <div class="boxn">
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <label">SELECT DATE</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <input type="date" name="date" id="date" required>
+        </div>
+      </div>
+    </div>    
+    {% for regdetails in names %}
+      {% if forloop.first %} {% endif %}
+      <div id="box2" class="shadow bg-white">
+        <div class="row">
+          <div class="col-lg-4 col-md-4">
+            <img src="{{ regdetails.employeeimage.url }}" width="40" height="38">
+          </div>
+          <div class="col-lg-4">
+            <h5 name="employee">{{ regdetails.name }}</h5>
+            <input type="hidden" name="employee" value={{ regdetails.name }}>
+            <input type="hidden" name="department" value={{ regdetails.department }}>
+            <input type="hidden" name="designation" value={{ regdetails.designation }}>
+            <input type="hidden" name="branch" value="{{ regdetails.branch }}">
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <h5 name="designation">{{ regdetails.designation}}</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <h5><input type="radio" name="status"  id="{{ regdetails.id }}"  value="Leave" >   Leave</h5> 
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <h5><input type="radio" name="status" id="{{ regdetails.id }}"  value="Present">   Present</h5>   
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <h5> <input type="text" style="width: 100px;" name="login"> Login time</h5>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <h5> <input type="text" style="width: 100px; " name="logout"> Logout time</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <button type="submit" class="btn btn-primary Search">Save</button>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</form>
+<script>
+$('input:radio').each(function() {
+  if($(this).is(':checked')) {
+    // You have a checked radio button here...
+  }
+  else {
+    // Or an unchecked one here...
+  }
+});
+</script>

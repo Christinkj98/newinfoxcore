@@ -1,0 +1,189 @@
+{% extends 'adwaith_index.html' %}
+{% block content %}
+      {% load static %}
+
+<style>
+    #myprofile{
+  margin-left: 0rem;
+}
+  .card{
+  /* margin-bottom: 10px; */
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  max-width: 550px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5vh;
+}
+#firstbox{
+  background-color: white;
+  height: auto;
+  float: right;
+  width: 100%;
+  margin-right: 5%;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+#firstbox div{
+  float: left;
+}
+#firstbox label{
+  margin-left: 120px;
+  padding-top: 14px;
+  color: #58B7AA;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 28px;
+  width: 200px;
+}
+.col span{
+  color: #58B7AA;
+  width:200px;
+  float: left;
+  font-size: 20px;
+}
+#firstbox .col{
+  float: left;
+
+}
+
+.col h5{
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 20px;
+
+}
+#fea{
+  font-weight: 400;
+  font-size: 28px;
+  margin-top: -5px;
+
+}
+.Search{
+  margin-top: 10%;
+  float: right;
+  margin-right: 10%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.drop{
+    height: 40px;
+    width: 350px;
+    margin-left: 0%;
+    border-radius: 5px;
+    margin-top: 0%;
+}
+label{
+  color: #58B7AA;
+}
+@media(max-width:61.938em){
+  .card{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+}
+
+
+  </style>
+      </head>
+
+
+
+
+<!-- <div><label id="myprofile">MY WORKS</label> -->
+<!-- <div id="firstbox" class="shadow p-3 bg-white">
+<form action="MANrecruitmarketingshare" method="post">
+{% csrf_token %}
+    {% for r in rec %}
+         <div class="col">
+    <h5 name="post"><span>Post</span>{{ r.post }}</h5>
+         <input type="hidden" name="post" value="{{ r.post }}">
+  </div><br><br>
+  <div class="col">
+    <h5 name="quali"><span>Qualification</span>{{ r.qualification }}</h5>
+  <input type="hidden" name="quali" value="{{ r.qualification }}">
+  </div><br><br><br>
+  <div class="col">
+    <h5 name="vacan"><span>Vacancies</span>{{ r.vacancies }}</h5>
+  <input type="hidden" name="vacan" value="{{ r.vacancies }}">
+  </div><br><br><br>
+  <div class="col">
+    <h5><span>Description </span></h5>
+  </div><br><br>
+  <div class="col">
+    <h5 name="des">{{ r.des }}</h5><br><br>
+  <input type="hidden" name="des" value="{{ r.des }}">
+  </div>
+    {% endfor %}
+   <div>
+      <label style="width: 190px;margin-left: 15px">Select TL </label>&nbsp
+       <select id="tlId" name="tl" class="drop" required>
+      <option value=""> </option>
+          {% for s in recs %}
+             <option name="tl" value="{{ s.name}}">{{ s.name }}</option>
+          {% endfor %}
+      </select>
+     </div><br>
+   <button type="submit" class="btn btn-primary Search ">Share</button>
+</form>
+</div> -->
+<div><label id="myprofile">MY WORKS</label></div>
+<div class="container" style= "float: right; margin-right: auto; margin-left: auto;padding-left: 20px;">
+  <div class="card">
+    <div class="card-body">
+      <form action="MANrecruitmarketingshare" method="post">
+        {% csrf_token %}
+            {% for r in rec %}
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label"><span>Post</span></label>
+          <div class="col-sm-7">
+            <input style="text-align: center;" type="text" readonly class="form-control-plaintext" id="prodname" value="{{ r.post }}">
+            <input type="hidden" name="post" value="{{ r.post }}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label"><span>Qualification</span></label>
+          <div class="col-sm-7">
+            <input type="text" style="text-align: center;" readonly class="form-control-plaintext" id="prodname" value="{{ r.qualification }}">
+            <input type="hidden" name="quali" value="{{ r.qualification }}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label"><span>Vacancies</span></label>
+          <div class="col-sm-7">
+            <input type="text" style="text-align: center;" readonly class="form-control-plaintext" id="prodname" value="{{ r.vacancies }}">
+            <input type="hidden" name="vacan" value="{{ r.vacancies }}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label"><span>Description</span></label>
+          <div class="col-sm-7">
+            <input type="text" style="text-align: center;" readonly class="form-control-plaintext" name="descri" value="{{ r.des }}">
+            <input type="hidden" name="des" value="{{ r.des }}">
+          </div>
+        </div>
+        {% endfor %}
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label" >Select TL </label>
+          <div class="col-sm-7">
+            <select class="form-select form-select-sm" name="tl" aria-label=".form-select-sm example" style="width: 250px;">
+              {% for s in recs %}
+              <option name="tl" value="{{ s.name }}">{{ s.name }}</option>
+           {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="form-group-row">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary Search ">Share</button>
+          </div>
+        </div>
+      </form>
+    </div> 
+  </div>
+
+
+{% endblock %}

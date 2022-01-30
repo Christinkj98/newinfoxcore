@@ -1,0 +1,81 @@
+{% extends 'sidebarnew.html'%}
+{%load static%}
+{%block content%}
+<style>
+   #myprofile{
+    margin-left: 0em;
+  }
+#box2 {
+    padding: 1% 5% 1% 5%;
+    background-color: white;
+    border-radius: 20px;
+    float: left;
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: auto;
+  }
+
+  #box2 h5,
+  #box2 img {
+    float: left;
+    margin-right: 20px;
+  }
+.container{
+  margin-top: 5vh;
+}
+  
+
+  @media (max-width: 61.938em) {
+    #box2 {
+      
+      margin-top: 3%;
+      
+    } 
+
+
+  }
+</style>
+
+
+ <div><label id="myprofile">VIEW ALL PROJECTS</label></div>
+<!-- <--<div id="hiddendiv">
+    {% for t in pro %}
+    <div id="box2" class="shadow bg-white">
+      <a href="HRMANmyprojectsubtask?prid={{ t.id }}" ><img src="{% static 'circle.png' %}" width="20" height="20">
+        <h5 id="name">{{t.projectname}}</h5>
+        <h5 id="date">Start date</h5>
+        <h5 id="date1"><span>{{ t.startdate }}</span></h5>
+        <h5  id="date2">End date</h5>
+        <h5 id="date3"><span>{{ t.duedate }}</span></h5></a>
+    </div>
+    {% endfor %}
+</div>
+</div> --> 
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-lg-12">  
+
+      {% for t in pro %}
+      
+      
+      <div id="box2" class="shadow bg-white">
+
+        <a href="HRMANmyprojectsubtask?prid={{ t.id }}" ><img src="{% static 'circle.png' %}" width="20"height="20">
+   
+          <h5 style="color: #4ec3c7;width: 100px">{{ t.projectname }}</h5>
+          
+          <h5 style="color: #3C4A4A;width: 240px;text-decoration: none;">Start date &nbsp;&nbsp;  <span style="color: #4ec3c7;font-size: 1.1rem;">{{ t.startdate }}</span></h5>
+          <!-- <h5 style="color: #4ec3c7;width: 130px"><span>{{ t.project.startdate }}</span></h5> -->
+          
+          <h5 style="color: #3C4A4A;width: 250px;text-decoration: none;">End date  &nbsp;&nbsp; <span style="color: #4ec3c7;font-size: 1.1rem;"> {{ t.duedate }}</span></h5>
+          <!-- <h5 style="color: #4ec3c7;width: 130px"><span>{{ t.project.duedate }}</span></h5> -->
+        </a>
+
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</div>
+{%endblock%}

@@ -1,0 +1,26 @@
+
+{% for regdetails in names %}
+   {% if forloop.first %} {% endif %}
+   <div id="box2" class="shadow bg-white">
+   <a href="MANemployees1?empid={{ regdetails.id }}">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+               <img src="{{ regdetails.employeeimage.url }}" width="40" height="38">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+               <h5>{{regdetails.name}}</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+               <h5>{{regdetails.designation}}</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-12">
+               <h5>{{regdetails.dateofappoinment}}</h5>
+            </div>
+         </div>
+      </div>
+        
+    
+       
+   </a></div>
+    {% endfor %}

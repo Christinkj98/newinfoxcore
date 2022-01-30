@@ -1,0 +1,122 @@
+{% extends 'adwaith_index.html'%}
+  {% load static %}
+ {% block content%}
+<style>
+    #myprofile{
+  margin-left: 0rem;
+}
+  .card{
+  /* margin-bottom: 10px; */
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
+  #box2{
+  padding: 1% 5% 1% 5%;
+  background-color: white;
+  border-radius: 20px;
+  float: left;
+  margin-top: 1%;
+  margin-left: 6%;
+  margin-right: 9%;
+  width: 79%;
+}
+#box2 h5,#box2 img{
+  float: left;
+  margin-right: 30px;
+}
+h5{
+  font-weight: 400;
+  margin-top: 10px;
+  color: black;
+}
+#hiddendiv{
+  height: auto;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+#box2 img{
+  margin-top: 15px;
+}
+
+.card{
+    /* padding: 1.5em .5em .5em; */
+    margin-top: 5vh;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+.parent{
+  white-space: nowrap;
+}
+.child{
+  display: inline;
+}
+.content{
+  margin-left: 300px;
+  margin-bottom: auto;
+}
+@media (max-width :61.938em) {
+  .card{
+  /* margin-bottom: 10px; */
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+}
+  </style>
+      </head>
+<body>
+
+   <div class="container-fluid">
+  <label id="myprofile">PRODUCT MARKETING</label> 
+ <!-- <div>
+     {% for product in productname %}
+          {% if forloop.first %}{% endif %}
+  <a href="MANmarkProductDetails?proid={{ product.id }}">
+    <a href="MANmarkProductDetails"></a>
+    <div id="box2" class="shadow bg-white">
+    <img src="{% static 'circle1.png' %}" width="20" height="20">
+    <h5 style="color:#4ec3c7;width: 250px"> {{ product.proname }} </h5>
+    <h5 style="width: 50px">Target</h5>
+    <h5 style="color:#4ec3c7;width: 60px">{{ product.target }}</h5>
+    <h5 style="width: 30px">Date</h5>
+    <h5 style="color:#4ec3c7;width: 120px"> {{ product.date }} </h5>
+  </div>
+ {% endfor %} -->
+   {% for p in productname %}
+   {% if forloop.first %}{% endif %}
+   <a style="text-decoration: none;" href="MANmarkProductDetails?proid={{ p.id }}">
+    <div class="md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col d-flex flex-row">
+              <img src="{% static 'circle1.png' %}" width="20" height="20" style="margin-top: 15px; margin-right: 4px;"><h5 style="color:#4ec3c7;"> {{ p.proname }} </h5>
+            </div>
+            <div class="col d-flex flex-row">
+              <h5 style="margin-right: 5px;">Target:</h5>
+              <h5 style="color:#4ec3c7;">{{ p.target }}</h5>
+            </div>
+            <div class="col d-flex flex-row">
+              <h5 style="margin-right: 5px;">Date: </h5>
+              <h5 style="color:#4ec3c7"> {{ p.date }} </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+     {% endfor %}
+ </div>
+ {% endblock %}
+</body>
+</html>

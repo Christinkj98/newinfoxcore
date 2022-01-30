@@ -1,0 +1,198 @@
+{% extends 'adwaith_index.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .card{
+  /* margin-bottom: 10px; */
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+#firstbox{
+  background-color: white;
+  height: 175px;
+  float: right;
+  width: 79%;
+  margin-top: 30%;
+}
+#firstbox div{
+  padding-left: 5%;
+  float: right;
+}
+#adname{
+  padding-top: 14px;
+  color: #58B7AA;
+  font-weight: 600;
+  max-width: 300px;
+}
+#bigimage{
+  float: right;
+  margin-right: 10%;
+}
+#smallbox1{
+  background-color: white;
+  width: 40%;
+  border-radius: 15px;
+  display: inline-flex;
+  float: right;
+  margin-right: 35%;
+  padding: 20px;
+  margin-top: 3%;
+}
+#smallbox1 h1{
+  margin-left: 15%;
+}
+#smallbox1 span{
+  color: #475151;
+}
+#boxes{
+  max-width: 75%;
+  float: right;
+  margin-right: 8%;
+  margin-top: 4.5%;
+}
+#smallbox{
+  background-color: white;
+  width: 20%;
+  border-radius: 15px;
+  display: inline-flex;
+  float: right;
+  /* margin-right: 10%; */
+  padding: 20px;
+  margin-top: 3%;
+}
+#smallbox h1{
+  margin-left: 15%;
+}
+#smallbox span{
+  color: #475151;
+}
+.Search{
+  margin-top: 1%;
+  float: right;
+  margin-right: 8%;
+  padding-left: 3%;
+  padding-right: 3%;
+  background-color: white;
+  color: #2294ba;
+}
+.card{
+    /* padding: 1.5em .5em .5em; */
+    border-radius: 2em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+.confsal{
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  
+  margin-bottom: 30px;
+}
+.myprofile{
+  opacity: 0.36;
+  
+  font-size: 20px;
+  font-weight: 600;
+  /* margin-left: 21%; */
+  padding: 2.2% 2% 5.5% 3%;
+  /* width: 79%; */
+}
+.sal{
+  margin-bottom: 10px;
+  width: 300px;
+}
+.salsub{
+  width: 290px;;
+}
+  </style>
+      </head>
+<body>
+
+
+<div class="container-fluid">
+ 
+  
+    <label class="myprofile">PAYMENTS</label>
+  
+
+  <div class="row">
+    <div class="col md-4">
+        {% for t in mem %}
+        {% if forloop.first %}{% endif %}
+        <div class="card md-12 sal" style="margin-left: auto; margin-right: auto;">
+          <div class="card-body">
+              <h2 style="color: #475151;font-size: 35px"><div class="card-title"><span style="color: #54c5eb;font-size: 20px">Confirmed</span>&nbsp; Salary</div></h2>
+              <h3><div class="card-text"><b style="font-size: 40px">{{ t.confirmsalary}}</b></div></h3>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row" style="margin-left: 7px; margin-top: 10px;">
+    <div class="col md-4 ">
+      <div class="card shadow salsub" style="margin-top: 10px;">
+  <div class="card-body">
+    <h2 style="color: #475151;font-size: 35px"><div class="card-title"><span>Increment</span></div></h2>
+      <h3><div class="card-text">{{ t.increment }}</div></h3>
+  </div>
+</div>
+    </div>
+    <div class="col md-4">
+      <div class="card shadow salsub" style="margin-top: 10px;">
+  <div class="card-body">
+    <h2 style="color: #475151;font-size: 35px"><div class="card-title"><span>Incentive</span></div></h2>
+      <h3><div class="card-text">{{ t.intensive }}</div></h3>
+  </div>
+</div>
+    </div>
+    <div class="col md-4">
+      <div class="card shadow salsub" style="margin-top: 10px;">
+  <div class="card-body">
+    <h2 style="color: #475151;font-size: 35px"><div class="card-title"><span>Deduction</span></div></h2>
+      <h3><div class="card-text">{{ t.deduction }}</div></h3>
+  </div>
+</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col" style="padding-top: 15px;">
+      <a href="MANPaymentsViewDetailButton"><button type="button" class="btn btn-primary Search " style="margin-left: 20%">View Details</button></a>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<!-- <div>
+<div id="row">
+<li id="smallbox" class="col shadow p-3 mb-5 bg-white" style="margin-right: 6%">
+  <h4 style="color:#475151">
+    <span>Increment</span>
+  </h4>
+  <div><br>
+   <h3 style="color: #475151;font-size: 35px">{{ t.increment }}</h3>
+   </div>
+  </li>
+<li id="smallbox" style="margin-right: 4%" class="col shadow p-3 mb-5 bg-white">
+  <h4 style="color:#58B7AA">
+    <span>Incentive</span></h4>
+    <div><br>
+      <h3 style="color: #475151;font-size: 35px">{{ t.intensive }}</h3>
+   <img class="row-sm" src="Group 63.png" width="100" height="80" style="margin-left: 110px">
+   </div> 
+</li>
+<li id="smallbox" style="margin-right: 4%" class="col shadow p-3 mb-5 bg-white">
+  <h4 style="color:#58B7AA">
+    <span>Deduction</span></h4><br>
+    <div><br>
+   <h3 style="color: #475151;font-size: 35px">{{ t.deduction }}</h3>
+   </div>  
+</li>
+<a href="MANPaymentsViewDetailButton"><button type="button" class="btn btn-default Search " style="margin-left: 20%">View Details</button></a></div>
+</div> -->
+{% endfor %}
+{% endblock %}
+</body>
+</html>

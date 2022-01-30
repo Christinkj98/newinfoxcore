@@ -1,0 +1,59 @@
+{% extends 'sidebarnew.html'%}
+{% block content %}
+{%load static%}
+
+<style>
+   #myprofile{
+    margin-left: 0em;
+  }
+.container{
+  /* background-color: white; */
+  border-radius: 15px;
+  width: 90%;
+  }
+  #date{
+    display: inline;
+  }
+  @media(max-width:61.938em){
+   #date{
+    display:block;
+    margin-left: -14px;
+     }
+    #date1{
+     position: relative;
+     top:-23px;
+     left:113px;
+    } 
+  }
+</style>
+     
+<div><label id="myprofile">PERFORMANCE</label></div>
+
+ <div class="container shadow p-3 bg-white rounded main">
+  <div class="row">
+    {% for pa in emp %}
+    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+      <img src="{{ pa.employeeimage.url }}" class="rounded-circle img-fluid" width="140" height="140"  id="bigimage">
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+      <h3 id="adname">{{ pa.name }}</h3>
+      <h4 style="font-weight: 400">{{ pa.designation }}</h4>
+      <h5 style="font-weight: 400">
+        <span style="color: #58B7AA">Departments</span>&nbsp;&nbsp;&nbsp;{{ pa.department }}<span id="date" style="color: #58B7AA;">&nbsp;&nbsp;&nbsp;Joining date</span><span id="date1">&nbsp;&nbsp;&nbsp;{{ pa.dateofappoinment}}</span></h5>
+    </div>
+  </div>
+
+
+</div> 
+
+  
+
+<div class="container " style="margin-top: 2%;margin-bottom: 16px;">
+  <a href="pie_chart?empid={{ pa.id }}"><button type="button" class="btn btn-primary Search1">Piechart</button></a>
+  <a href="bar_chart?empid={{ pa.id }}"><button type="button" class="btn btn-primary Search2" >Barchart</button></a>
+  <a href="hrperformance2?empid={{ pa.id }}"><button type="button" class="btn btn-primary Search3" >Update</button></a>
+</div>
+{% endfor %}
+{% endblock %}
+
+

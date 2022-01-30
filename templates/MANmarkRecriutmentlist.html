@@ -1,0 +1,112 @@
+{% extends 'adwaith_index.html'%}
+  {% load static %}
+  {% block content %}
+<style>
+    #myprofile{
+  margin-left: 0rem;
+}
+  .card{
+  /* margin-bottom: 10px; */
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+}
+  #box2{
+  padding: 1% 5% 1% 5%;
+  background-color: white;
+  border-radius: 20px;
+  float: left;
+  margin-top: 1%;
+  margin-left: 6%;
+  margin-right: 9%;
+  max-width: 550px;
+}
+#box2 h5,#box2 img{
+  float: left;
+  margin-right: 30px;
+}
+h5{
+  font-weight: 400;
+  margin-top: 10px;
+  color: black;
+}
+#hiddendiv{
+  height: auto;
+  width: 75%;
+  float: right;
+
+}
+#box2 img{
+  margin-top: 15px;
+}
+@media(max-width:61.938em){
+
+.card{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+}
+
+
+  </style>
+      </head>
+<label id="myprofile">RECRUITMENT</label>
+ <!-- <div id="hiddendiv">
+      {% for r in recruit %}
+         {% if forloop.first %}{% endif %} --> 
+    <!-- <a href="MANmarkRecruitmentDetails?recid={{ r.id }}"> -->
+      <!-- <a href="#"></a> -->
+      <!-- <div id="box2" class="shadow bg-white">
+    <img src="{% static 'circle1.png' %}" width="20" height="20">
+    <h5 style="color:#4ec3c7;width: 170px">post</h5>
+    <h5 style="width: 90px">Vacancies</h5>
+    <h5 style="color:#4ec3c7;width: 50px">vacancies</h5>
+    <h5 style="width: 30px">Date</h5>
+    <h5 style="color:#4ec3c7;width: 120px">date</h5>
+  </div></a> -->
+       <!-- {% endfor %} -->
+  <!-- <div id="box2" class="shadow bg-white">
+    <img src="{% static 'circle1.png' %}" width="20" height="20">
+    <h5 style="color:#4ec3c7;width: 170px">post</h5>
+    <h5 style="width: 90px">Vacancies</h5>
+    <h5 style="color:#4ec3c7;width: 50px">vacancies</h5>
+    <h5 style="width: 30px">Date</h5>
+    <h5 style="color:#4ec3c7;width: 120px">date</h5>
+  </div>
+</div> -->
+
+
+<div class="container-fluid">
+  {% for r in recruit %}
+  {% if forloop.first %}{% endif %}
+<div class="md-6">
+  <a style="text-decoration: none;" href="MANmarkRecruitmentDetails?recid={{ r.id }}">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col d-flex flex-row">
+          <img src="{% static 'circle1.png' %}" width="20" height="20" style="margin-top: 15px; margin-right: 6px;">
+         <h5 style="color:#4ec3c7;">{{ r.post }}</h5>
+        </div>
+        <div class="col d-flex flex-row">
+          <h5 style="margin-right: 5px;">Vacancies: </h5>
+          <h5 style="color:#4ec3c7;">{{ r.vacancies }}</h5>
+        </div>
+        <div class="col d-flex flex-row">
+          <h5 style="margin-right: 5px;">Date: </h5>
+          <h5 style="color:#4ec3c7;">{{ r.date }}</h5>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</a>
+</div>
+</div>
+{% endblock %}

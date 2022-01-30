@@ -1,0 +1,132 @@
+{%extends 'bibin.html'%}
+{%load static%}
+{%block content%}
+
+<main class="ps-0 ps-md-5 flex-grow-1">
+<div class="row">
+
+<div class="mt-4 ml-5" style="opacity: 0.36;color: black;font-size: 20px;font-weight: 600;"><pan class="ml-2">SERVICES</span></div></div>
+<div class="row mt-5 mb-5">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+<div id="" class="container shadow   bg-white" style="border-radius:10px;">
+  <div class=" pt-5 pb-5 pr-3">
+<form action="serviceadd" method="post">
+    {% csrf_token %}
+    <div class="row pt-1">
+      <div class="col-md-4">
+      <div class="text-info mr-2" style="opacity: 0.70;font-size:20px;">Select Country</div></div>
+      <div class="col-md-8 ">
+        <select id="regdetailsdept" name="country" class="drop form-control ml-3 mt-2" required>
+            <option value=""> </option>
+                {% for regdetails in edepartments %}
+                    <option value="{{ regdetails.country}}">{{ regdetails.country }}</option>
+                {% endfor %}
+            </select>
+     </div></div>
+<div class="row pt-1">
+    <div class="col-md-4">
+        <div class="text-info mr-2" style="opacity: 0.70;font-size:20px;">Select City</div>
+        </div>
+        <div class="col-md-8 ">
+        <select id="regdetailsDesig" name="city" class="drop form-control ml-3 mt-2" required></select>
+    </div>
+</div>
+<div class="row pt-1">
+    <div class="col-md-4">
+        <div class="text-info mr-2" style="opacity: 0.70;font-size:20px;">Select Branch</div>
+        </div>
+        <div class="col-md-8 ">
+        <select id="regdetailsempl" name="brnch" class="drop form-control ml-3 mt-2" required></select>
+    </div>
+</div>
+<div class="row pt-1">
+    <div class="col-md-4">
+        <div class="text-info mr-2" style="opacity: 0.70;font-size:20px;">Service</div>
+        </div>
+        <div class="col-md-8 ">
+        <input type="text" name="service" class="drop form-control ml-3 mt-2" required/>
+    </div>
+</div>
+<div class="row pt-1">
+    <div class="col-md-4">
+        <div class="text-info mr-2" style="opacity: 0.70;font-size:20px;">Payment Details</div>
+        </div>
+        <div class="col-md-8 ">
+        <input type="text" name="payment" class="drop form-control ml-3 mt-2" required/>
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-4">
+    <div class="text-info" style="opacity: 0.70;font-size:20px;">Description</div></div>
+        <div class="col-md-8 justify-content-start">
+    <textarea rows="4" cols="59" name="des" class="drop form-control ml-3 mt-2" required></textarea>
+        </div>
+</div>
+     <div class="row">
+         <div class="col-md-6"></div>
+         <div class="col-md-6 text-right">
+            <button type="submit" class="btn btn-primary Search justify-content-end mt-5">Assign</button>
+         </div>
+     </div>
+</form>
+</div></div></div>
+<div class="col-md-2"></div></div>
+</main>
+<script type="text/javascript">
+    $("#regdetailsdept").change(function () {
+        const url = $("#personForm").attr("data-cities-url");
+        const deptId = $(this).val();
+
+        $.ajax({
+            url: 'seradmintraineedesi',
+            data: {
+                'dept_id': deptId
+            },
+            success: function (data) {
+                $("#regdetailsDesig").html(data);
+                console.log(data);
+            }
+        });
+
+    });
+        $("#regdetailsDesig").change(function () {
+
+        const desiId = $(this).val();
+        const deptiId =$("#regdetailsdept").val();
+
+        $.ajax({
+            url: 'seradminloademployeess',
+            data: {
+                'desi_id': desiId,
+                'dept_id': deptiId
+            },
+            success: function (data) {
+                $("#regdetailsempl").html(data);
+                console.log(data);
+            }
+        });
+});
+    $("#btnSearch").click(function () {
+        const url = $("#personForm").attr("data-cities-url");
+        const deptId = $("#regdetailsdept").val();
+        const desgId = $("#regdetailsDesig").val();
+        const branchId = $("#regdetailsempl").val();
+
+        $.ajax({
+            url: 'admintaskmanager',
+            data: {
+                'dept_id': deptId,
+                'desig_id':desgId,
+                'branch_id':branchId
+            },
+            success: function (data) {
+                $("#hiddendiv").html(data);
+            }
+        });
+    });
+    function showDiv() {
+        document.getElementById('hiddendiv').style.display = "block";
+    }
+</script>
+{%endblock%}

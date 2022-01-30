@@ -1,0 +1,179 @@
+{% extends 'adwaith_index.html' %}
+{% block content %}
+{% load static %}
+ 
+<style>
+    #myprofile{
+  margin-left: 0rem;
+}
+  .card{
+  /* margin-bottom: 10px; */
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+} 
+#firstbox{
+  background-color: white;
+  height: auto;
+  float: right;
+  width: 100%;
+  margin-right: 5%;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+#firstbox div{
+  float: left;
+}
+#firstbox label{
+  margin-left: 120px;
+  padding-top: 14px;
+  color: #58B7AA;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 28px;
+  width: 200px;
+}
+.col span{
+  color: #58B7AA;
+  width:200px;
+  float: left;
+  font-size: 20px;
+}
+#firstbox .col{
+  float: left;
+
+}
+
+.col h5{
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 20px;
+
+}
+#fea{
+  font-weight: 400;
+  font-size: 28px;
+  margin-top: -5px;
+
+}
+.Search{
+  margin-top: 1%;
+  float: right;
+  margin-right: 10%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.drop{
+    height: 40px;
+    width: 350px;
+    margin-left: 0%;
+    border-radius: 5px;
+    margin-top: 0%;
+
+}
+label{
+  color: #58B7AA;
+}
+@media(max-width:61.938em){
+  .card{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+  }
+}
+
+  </style>
+
+<!-- <div>
+<div id="firstbox" class="shadow p-3 bg-white">
+<form action="MANServicemarketingshare" method="post">
+{% csrf_token %}
+    {% for s in share %}
+         <div class="col">
+    <h5 name="service"><span>Service</span>{{ s.service }}</h5>
+         <input type="hidden" name="service" value="{{ s.service }}">
+  </div><br><br>
+  <div class="col">
+    <h5 name="payment"><span>Payment</span>{{ s.payment }}</h5>
+  <input type="hidden" name="payment" value="{{ s.payment }}">
+  </div><br><br><br>
+  <div class="col">
+    <h5><span>Description </span></h5>
+
+  </div><br><br>
+  <div class="col">
+    <h5 name="desc">{{ s.des }}</h5>
+  <input name="desc" type="hidden" value="{{s.des}}">
+  </div>
+
+{% endfor %}
+  <div>
+      <label style="width: 190px;margin-left: 15px">Select TL </label>&nbsp
+       <select id="tlId" name="tl" class="drop" required>
+      <option value=""> </option>
+          {% for s in serv %}
+             <option name="tl" value="{{ s.name}}">{{ s.name }}</option>
+          {% endfor %}
+      </select>
+     </div>
+    <br><br><br><br><br>
+   <button type="submit" class="btn btn-primary Search ">Share</button>
+</form>
+</div> -->
+
+<div class="container-fluid">
+  <label id="myprofile">MY WORKS</label>
+  <div class="card">
+    <div class="card-body">
+      <form action="MANServicemarketingshare" method="post">
+        {% csrf_token %}
+            {% for s in share %}
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"><span>Service</span></label>
+          <div class="col-sm-10">
+            <input style="text-align: center;" type="text" readonly class="form-control-plaintext" id="prodname" value="{{ s.service }}">
+            <input type="hidden" name="service" value="{{ s.service }}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"><span>Payment</span></label>
+          <div class="col-sm-10">
+            <input style="text-align: center;" type="text" readonly class="form-control-plaintext" value="{{ s.payment }}">
+            <input type="hidden" name="payment" value="{{ s.payment }}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"><span>Description</span></label>
+          <div class="col-sm-10">
+            <input style="text-align: center;" type="text" readonly class="form-control-plaintext" value="{{ s.des }}">
+            <input name="desc" type="hidden" value="{{s.des}}">
+          </div>
+        </div>
+        {% endfor %}
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" >Select TL </label>
+          <div class="col-sm-10">
+            <select style="text-align: center;" class="form-select form-select-sm" name="tl" aria-label=".form-select-sm example" style="width: 250px;">
+              <option value=""> </option>
+          {% for s in serv %}
+             <option name="tl" value="{{ s.name}}">{{ s.name }}</option>
+          {% endfor %}
+            </select>
+          </div>
+        </div>
+
+            <button type="submit" class="btn btn-primary Search " style="float: left; margin-left: 120px;">Share</button>
+ 
+     
+          
+        
+      </form>
+    </div> 
+  </div>
+
+
+{% endblock %}

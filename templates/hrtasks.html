@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{%extends 'indexAmal.html'%}
+{%load static%}
+{%block content%}
+<style>
+  .myprofile{
+    margin-left: 0rem;
+    opacity: 0.36;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 2.2% 2% 1.5% 3%;
+  width: 79%;
+  }
+  #smallbox{
+    margin-top: 5vh;
+    max-width: 250px;
+  }
+</style>
+  <label class="myprofile">Tasks</label>
+
+
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <li id="smallbox" class="col shadow p-3 mb-5 bg-white d-flex " style="border-radius:20px;"><a style="text-decoration:none" href="hrassignedtasks">
+                <h5 >
+                  Assigned tasks
+                </h5>
+               
+                 <img class="row-sm" src=" {% static 'Group18.png' %}" width="130" height="80" style="margin-left: 70px">
+              </a>     
+              </li>
+            </div>
+            <div class="col-lg-4 ">
+              <li id="smallbox" class="col shadow p-3 mb-5 bg-white d-flex " style="border-radius:20px;"><a style="text-decoration:none" href="hrgiveprojects">
+                <h5 >
+                 Give tasks
+                </h5>
+            
+                 <img class="row-sm " src=" {% static 'Group16.png' %}" width="100" height="80" style="margin-left: 90px">
+                </a>
+                 
+              </li>
+            </div>
+            <div class="col-lg-4 ">
+              <li id="smallbox" class="col shadow p-3 mb-5 bg-white d-flex " style="border-radius:20px;"><a style="text-decoration:none" href="hrtasks1">
+                <h5>
+                  My tasks</h5>
+              
+                 <img class="row-sm" src=" {% static 'Group15.png' %}" width="100" height="80" style="margin-left: 90px">
+               </a>
+                 
+              
+              </li>
+            </div>
+          </div>
+      </div>
+
+
+
+
+
+   
+</body>
+</html>
+{%endblock%}

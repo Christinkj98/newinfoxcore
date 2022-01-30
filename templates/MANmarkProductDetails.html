@@ -1,0 +1,145 @@
+{% extends 'bibin.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  #myprofile{
+    opacity: 0.36;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 75px;
+    padding: 2.2% 2% 1.5% 3%;
+    width: 79%;
+}
+  #ifirstbox{
+    background-color: white;
+    height: auto;
+    float: right;
+    width: 70%;
+    margin-right: 15%;
+    border-radius: 20px;
+    margin-top: 30px;
+  }
+  #ifirstbox div{
+    float: left;
+  }
+  #ifirstbox label{
+    margin-left: 120px;
+    padding-top: 14px;
+    color: #58B7AA;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 28px;
+    width: 200px;
+  }
+  .col span{
+    color: #58B7AA;
+    width:200px;
+    float: left;
+    font-size: 20px;
+  }
+  #ifirstbox .col{
+    float: left;
+  
+  }
+  
+  .col h5{
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 20px;
+  
+  }
+  .Search{
+    margin-top: 10%;
+    float: right;
+    margin-right: 30%;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  .click{
+    margin-top: 10%;
+    margin-left: 20%;
+    color: #2a7b91
+  }
+  #ass{
+    margin-right: 30px;
+  }
+  @media screen and (min-width: 400px) and (max-width: 1200px){
+    .click{
+    margin-top: 17%;
+    margin-left: 1%;
+    color: #2a7b91
+  }
+  #ass{
+    margin-right: 30px;
+    margin-top: 17%;
+  }
+  }
+  @media screen and (min-width: 300px) and (max-width: 420px){
+  #imyprofile{
+    opacity: 0.36;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 75px;
+    padding: 2.2% 2% 1.5% 3%;
+    width: 79%;
+    }
+    #ifirstbox{
+    background-color: white;
+    height: auto;
+    float: right;
+    width: 300px;
+    margin-right: 5%;
+    border-radius: 20px;
+    margin-top: 30px;
+  }
+  .click{
+    margin-top: 26%;
+    margin-left: 2%;
+    color: #2a7b91
+  }
+  #ass{
+    margin-right: 15px;
+    margin-top: 84px;
+  }
+  }
+  @media screen and (min-width: 250px) and (max-width: 350px){
+    .click{
+    margin-top: 26%;
+    margin-left: -2%;
+    color: #2a7b91
+  }
+    #ass{
+      margin-right: 1px;
+      margin-top: 84px;
+    }
+  }
+    </style>
+    </head>
+    <body>
+      <div><label id="myprofile">PRODUCT MARKETING</label>
+        <div id="ifirstbox" class="shadow p-3 bg-white">
+            {% for product in products %}
+        
+          <div class="col">
+            <h5><span>Product name</span>{{ product.proname }}</h5>
+          </div><br><br>
+          <div class="col">
+            <h5><span>Target</span>{{ product.target }}</h5>
+          </div><br><br><br>
+          <div class="col ">
+            <h5><span>Description </span>{{ product.des }}</h5>
+          </div><br><br>
+
+        
+            <a href="MANmarkProductDetailsShare?proid=1"><button type="button" class="btn btn-primary Search" id="ass">Assign</button></a>
+              {% endfor %}
+            <h6 class="click">click to update target and assign to Marketing TL</h6>
+        </div>
+        </div>
+{% endblock %}
+
+
+
