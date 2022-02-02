@@ -7956,17 +7956,24 @@ def internshipregister(request):
         a.profile_pic = request.FILES['profile_pic']
         a.attach_file = request.FILES['attach_file']
         a.reg_date=datetime.now()
+        if (a.end_date<a.start_date):
+            
+            return render(request,'internshipregister.html',{'a':a})
+               
+            
+        else:
+
+            a.save()
+            qr = make("http://127.0.0.1:8000/coreapp/admin_code?id=" + str(a.id))
+            qr.save(settings.MEDIA_ROOT + "\\" +str(a.id) + ".png")
+            with open(settings.MEDIA_ROOT + "\\" + str(a.id) + ".png", "rb") as reopen:
+                    djangofile = File(reopen)
+                    a.qr = djangofile
+                    #college1.image = request.FILES['image']
+                    #college1.idproof = request.FILES['idproof']
+                    a.save()
+            return render(request,'internshipregister.html',{'a':a})
         
-        a.save()
-        qr = make("http://127.0.0.1:8000/coreapp/admin_code?id=" + str(a.id))
-        qr.save(settings.MEDIA_ROOT + "\\" +str(a.id) + ".png")
-        with open(settings.MEDIA_ROOT + "\\" + str(a.id) + ".png", "rb") as reopen:
-            djangofile = File(reopen)
-            a.qr = djangofile
-            #college1.image = request.FILES['image']
-            #college1.idproof = request.FILES['idproof']
-        a.save()
-        return render(request,'internshipregister.html',{'a':a})
         
 
     else:

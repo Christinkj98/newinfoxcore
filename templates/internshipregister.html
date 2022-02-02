@@ -1,8 +1,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -15,247 +14,323 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {%load static%}
 <style>
-    body{
-        background-image: url('{% static "bg13.jpeg" %}');
-        background-repeat:no-repeat;
-        background-size:100% 100%;
-       }
+  body {
+    background-image: url('{% static "bg13.jpeg" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+  }
 </style>
+
 <body>
+  <section>
     <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 bg-light mt-5 mb-5" style="border-radius: 20px;">
-        <form method="post" id="alert1" action="internshipregister" enctype="multipart/form-data" >
-            {% csrf_token %}
-        <center><div class="mt-5" style="font-size:30px;font-weight: bolder;">INTERNSHIP REGISTRATION</div></center>
-        <div class="container mt-5 mb-5">
-         
-<div class="row">
-    <div class="container">
-<div class="text-left mt-3 ">FULL NAME</div>
- <input type="text" id="name" name="name" class="form-control mt-2 " placeholder="Full Name" style="border-radius:5px;border-color: #2f516f;"  >
-</div></div>
- <div class="row">
-    <div class="container">
- <div class="text-left mt-3 ">COLLEGE NAME</div>
- <input type="text" id="colname" name="college_name" placeholder="Colege Name" class="form-control mt-2 " style="border-radius:5px;border-color: #2f516f;" >
-</div></div>
-<div class="row">
-    <div class="col-md-6">
- <div class="text-left mt-3 ">REG NO</div>
- <input type="text" id="regno" name="reg_no" placeholder="Register Number" class="form-control mt-2 " style="border-radius:5px;border-color: #2f516f;" > 
- </div>
-<div class="col-md-6">
-    <div class="text-left mt-3 ">COURSE</div>
-    <select name="course" id="course" class="form-control mt-2 " style="border-radius:5px;border-color: #2f516f;"  >
-        <option class=""></option>
-        <option class="">M.TECH</option>
-        <option class="">B.TECH</option>
-        <option class="">BCA</option>
-        <option class="">MCA</option>
-        <option class="">B.COM</option>
-</select>
- </div>
-</div>
-<div class="row">
-    <div class="container">
- <div class="text-left mt-3 ">STREAM</div>
- <input type="text" name="stream" id="stream" placeholder="Stream" class="form-control mt-2" style="border-radius:5px;border-color: #2f516f;" >
-</div></div>
-<div class="row">
-    <div class="container">
- <div class="text-left mt-3 ">PLATFORM</div>
- <input type="text" id="platform" name="platform" placeholder="Platform" class="form-control mt-2" style="border-radius:5px;border-color: #2f516f;" >
-</div></div>
-<div class="row">
-    <div class="col-md-6">
- <div class="text-left mt-3 ">STARTING DATE</div>
- <input type="text" id="startDate" autocomplete="off" placeholder="Start Date" name="start_date" class="form-control mt-2 " style="border-radius:5px;border-color: #2f516f;" >
- </div>
-<div class="col-md-6">
-    <div class="text-left mt-3 ">ENDING DATE</div>
- <input type="text" id="endDate" autocomplete="off" placeholder="End Date" name="end_date" class="form-control mt-2" style="border-radius:5px;border-color: #2f516f;" >
- </div>
-</div>
- <div class="row">
-    <div class="col-md-4">
- <div class="text-left mt-3 ">MOBILE</div>
- <input type="text" id="mobile" name="mobile" placeholder="Mobile Number" class="form-control mt-2 " style="border-radius:5px;border-color: #2f516f;" >
- </div>
- <div class="col-md-4"></div>
-<div class="col-md-4">
-    <div class="text-left mt-3 ">ALTERNATIVE NO</div>
- <input type="text" id="altno" name="alternative_no" placeholder="Alternative Number" class="form-control mt-2" style="border-radius:5px;border-color: #2f516f;" >
- </div>
-</div>        
- <div class="row">
-    <div class="container">
- <div class="text-left mt-3 ">EMAIL</div>
- <input type="text" id="email" name="email" placeholder="Email" class="form-control mt-2 " style="border-radius:5px;border-color: #2f516f;" >
-</div></div>
- <div class="row">
-    <div class="col-md-4">
- <div class="text-left mt-3 ">PROFILE PIC</div>
- <input type="file" id="files"  onchange="showPreview(event);" name="profile_pic" class="form-control mt-2 three" style="border:none;border-radius:5px;border-color: #2f516f;" >
- <div class="row">
-    <div class="preview ml-3"> 
-      <img id="files-preview" width=200 height=200 style="display:none;" >
+      <div class="col-md-3"></div>
+      <div class="col-md-6 bg-light mt-5 mb-5" style="border-radius: 20px;">
+        <form method="post" id="alert1" action="internshipregister" enctype="multipart/form-data">
+          {% csrf_token %}
+          <center>
+            <div class="mt-5" style="font-size:30px;font-weight: bolder;">INTERNSHIP REGISTRATION</div>
+          </center>
+          <div class="container mt-5 mb-5">
+
+            <div class="row">
+              <div class="container">
+                <div class="text-left mt-3 ">FULL NAME</div>
+                <input type="text" id="name" name="name" class="form-control mt-2 " placeholder="Full Name"
+                  style="border-radius:5px;border-color: #2f516f;" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="container">
+                <div class="text-left mt-3 ">COLLEGE NAME</div>
+                <input type="text" id="colname" name="college_name" placeholder="Colege Name" class="form-control mt-2 "
+                  style="border-radius:5px;border-color: #2f516f;" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="text-left mt-3 ">REG NO</div>
+                <input type="text" id="regno" name="reg_no" placeholder="Register Number" class="form-control mt-2 "
+                  style="border-radius:5px;border-color: #2f516f;" autocomplete="off">
+              </div>
+              <div class="col-md-6">
+                <div class="text-left mt-3 ">COURSE</div>
+                <select name="course" id="course" class="form-control mt-2 "
+                  style="border-radius:5px;border-color: #2f516f;">
+                  <option class=""></option>
+                  <option class="">M.TECH</option>
+                  <option class="">B.TECH</option>
+                  <option class="">BCA</option>
+                  <option class="">MCA</option>
+                  <option class="">B.COM</option>
+                  <option class="">Diploma</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="container">
+                <div class="text-left mt-3 ">STREAM</div>
+                <input type="text" name="stream" id="stream" placeholder="Stream" class="form-control mt-2"
+                  style="border-radius:5px;border-color: #2f516f;" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="container">
+                <div class="text-left mt-3 ">PLATFORM</div>
+                <input type="text" id="platform" name="platform" placeholder="Platform" class="form-control mt-2"
+                  style="border-radius:5px;border-color: #2f516f;" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="text-left mt-3 ">STARTING DATE</div>
+                <input type="text" id="startDate" autocomplete="off" placeholder="Start Date" name="start_date"
+                  class="form-control mt-2 " style="border-radius:5px;border-color: #2f516f;">
+              </div>
+              <div class="col-md-6">
+                <div class="text-left mt-3 ">ENDING DATE</div>
+                <input type="text" id="endDate" autocomplete="off" placeholder="End Date" name="end_date"
+                  class="form-control mt-2" style="border-radius:5px;border-color: #2f516f;">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="text-left mt-3 ">MOBILE</div>
+                <input type="text" id="mobile" name="mobile" placeholder="Mobile Number" class="form-control mt-2 "
+                  style="border-radius:5px;border-color: #2f516f;" autocomplete="off">
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+                <div class="text-left mt-3 ">ALTERNATIVE NO</div>
+                <input type="text" id="altno" name="alternative_no" placeholder="Alternative Number"
+                  class="form-control mt-2" style="border-radius:5px;border-color: #2f516f;" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="container">
+                <div class="text-left mt-3 ">EMAIL</div>
+                <input type="text" id="email" name="email" placeholder="Email" class="form-control mt-2 "
+                  style="border-radius:5px;border-color: #2f516f;" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="text-left mt-3 ">PROFILE PIC</div>
+                <input type="file" id="files" accept="image/jpeg, image/png" onchange="showPreview(event);" name="profile_pic"
+                  class="form-control mt-2 three" style="border:none;border-radius:5px;border-color: #2f516f;">
+                <div class="row">
+                  <div class="preview ml-3">
+                    <img id="files-preview" width=200 height=200 style="display:none;">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+                <div class="text-left mt-3 ">ATTACH FILE</div>
+                <input type="file" id="two" name="attach_file" class="form-control mt-2 "
+                  style="border:none;border-radius:5px;border-color: #2f516f;">
+              </div>
+            </div>
+
+
+            <div class=" row  mt-3 ">
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+                <button type="submit" id="alert2" onclick="dates();" class="btn btn-outline-info ml-5">Apply</button>
+              </div>
+              <div class="col-md-4"></div>
+              <div>
+        </form>
+
+      </div>
     </div>
-    </div> 
-</div>
- <div class="col-md-4"></div>
-<div class="col-md-4">
-    <div class="text-left mt-3 ">ATTACH FILE</div>
- <input type="file" id="two" name="attach_file" class="form-control mt-2 " style="border:none;border-radius:5px;border-color: #2f516f;" >
- </div>
-</div>
-
-
-    <div class=" row  mt-3 ">
-        <div class="col-md-4"></div>
-         <div class="col-md-4">
-        <button type="submit" id="alert2" class="btn btn-outline-info ml-5" >Apply</button></div>
-        <div class="col-md-4"></div>
-         <div>
-         </form>
- 
-</div>
-</div>
-<div class="col-md-3"></div></div>
+    <div class="col-md-3"></div>
+    </div>
+  </section>
 </body>
 
-<script >
-    function showPreview(event){
-  if(event.target.files.length > 0){
-    var src = URL.createObjectURL(event.target.files[0]);
-    var preview = document.getElementById("files-preview");
-    preview.src = src;
-    preview.style.display = "block";
-  }
-}
+<script>
+  function dates() {
+    var checkin_date = $("#startDate").datepicker('getDate');
+    var checkout_date = $("#endDate").datepicker('getDate');
+    if (checkout_date <= checkin_date) {
+      alert("This Dates booking is not valid");
+      window.location.reload();
+    } else {
+      return true;
 
-$(function () {
+    }
+
+
+  }
+
+  function showPreview(event) {
+    if (event.target.files.length > 0) {
+      var src = URL.createObjectURL(event.target.files[0]);
+      var preview = document.getElementById("files-preview");
+      preview.src = src;
+      preview.style.display = "block";
+    }
+  }
+
+  $(function () {
+
+    // $("#startDate").datepicker({
+    //   minDate: 1,
+    //   onClose: function (selectedDate) {
+    //     $("#endDate").datepicker("option", "minDate", selectedDate);
+    //   }
+    // });
+    // $("#endDate").datepicker({
+      
+    //   onClose: function (startDate) {
+        
+    //     $("#startDate").datepicker("option" , "maxDate", startDate);
+    //   }
+    // });
+
+
     $("#startDate").datepicker({
-        minDate: 1,
-        onClose: function (selectedDate) {
-            $("#endDate").datepicker("option", "minDate", selectedDate);
+        numberOfMonths: 1,
+        minDate:1,
+        onSelect: function (selected) {
+            var dt = new Date(selected);
+            dt.setDate(dt.getDate() + 1);
+            $("#endDate").datepicker("option", "minDate", dt);
         }
     });
     $("#endDate").datepicker({
-      
-        onClose: function (selectedDate) {
-            $("#startDate").datepicker("option", "maxDate", selectedDate);
+        numberOfMonths: 1,
+        onSelect: function (selected) {
+            var dt = new Date(selected);
+            dt.setDate(dt.getDate() - 1);
+            $("#startDate").datepicker("option", "maxDate", dt);
         }
     });
-});
+ 
+    $("#endDate").on('change', function () {
+      var checkin_date = $("#startDate").datepicker('getDate');
+      var checkout_date = $("#endDate").datepicker('getDate');
+      var diffblw_dates = (checkout_date - checkin_date) / 1000 / 60 / 60 / 24;
+      if (diffblw_dates <= 0) {
+        alert("This Dates booking is not valid");
+        window.location.reload();
+      } else {
+        return true;
+
+      }
+    });
+   
+  });
 </script>
 <script>
 
-$(document).on('click', '#alert2', function(e) {
+  $(document).on('click', '#alert2', function (e) {
     e.preventDefault();
     const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: true
-      })
-      
-      swalWithBootstrapButtons.fire({
-        title: 'Are you sure?',
-        
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: ' Submit',
-        cancelButtonText: '  cancel!',
-        reverseButtons: true,
-        preConfirm: () => {
-            if (document.getElementById('two').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('files missing')   
-             }
-            if (document.getElementById('files').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('profile picture missing')   
-             }
-            if (document.getElementById('email').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('email missing')   
-             }
-            if (document.getElementById('altno').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('alternative number missing')   
-             }
-            if (document.getElementById('mobile').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('mobile number missing')   
-             }
-            if (document.getElementById('endDate').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('end date missing')   
-             }
-            if (document.getElementById('startDate').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('start date missing')   
-             }
-            if (document.getElementById('platform').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('platform missing')   
-             }
-            if (document.getElementById('stream').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('stream missing')   
-             }
-            if (document.getElementById('course').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('course missing')   
-             }
-            if (document.getElementById('regno').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('regno missing')   
-             }
-            if (document.getElementById('colname').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('college name missing')   
-             }
-            if (document.getElementById('name').value) {
-                // Handle return value 
-             } else {
-               Swal.showValidationMessage('full name missing')   
-             }
-             
-          }
-      }).then((result) => {
-        if (result.isConfirmed) {
-            $('#alert1').submit();
-            swalWithBootstrapButtons.fire(
-                'Success',
-                'Your file has been Uploaded.',
-                
-          )
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire(
-            'Cancelled',
-         
-          )
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: true
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: ' Submit',
+      cancelButtonText: '  cancel!',
+      reverseButtons: true,
+      preConfirm: () => {
+        if (document.getElementById('two').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('files missing')
         }
-      })
-    });
+        if (document.getElementById('files').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('profile picture missing')
+        }
+        if (document.getElementById('email').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('email missing')
+        }
+        if (document.getElementById('altno').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('alternative number missing')
+        }
+        if (document.getElementById('mobile').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('mobile number missing')
+        }
+        if (document.getElementById('endDate').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('end date missing')
+        }
+        if (document.getElementById('startDate').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('start date missing')
+        }
+        if (document.getElementById('platform').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('platform missing')
+        }
+        if (document.getElementById('stream').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('stream missing')
+        }
+        if (document.getElementById('course').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('course missing')
+        }
+        if (document.getElementById('regno').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('regno missing')
+        }
+        if (document.getElementById('colname').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('college name missing')
+        }
+        if (document.getElementById('name').value) {
+          // Handle return value 
+        } else {
+          Swal.showValidationMessage('full name missing')
+        }
+
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $('#alert1').submit();
+        swalWithBootstrapButtons.fire(
+          'Success',
+          'Your file has been Uploaded.',
+
+        )
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled',
+
+        )
+      }
+    })
+  });
 </script>
 
 </html>

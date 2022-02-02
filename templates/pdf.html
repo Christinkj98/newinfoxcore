@@ -6,6 +6,7 @@
             body {
                 font-weight: 200;
                 font-size: 14px;
+      
             }
             .header {
                 font-size: 20px;
@@ -38,6 +39,8 @@
                 text-align: justify;
                 font-size: 17px !important;
                 line-height: 30px;
+                
+                
 
             }
         </style>
@@ -56,6 +59,8 @@
                 <p class='title'style="color: black"><b>TO WHOMSOEVER IT MAY CONCERN</b></p> 
             </div>
         <div>
+            <br>
+            <br>
  
         <div class='details text-justify'>
             <div class="content">This is to certify that <b>Mr./Ms </b><b>{{ mem.fullname }}</b> 
@@ -63,14 +68,14 @@
                 has successfully completed his/her internship in <b>{{ mem.platform }}</b> in this organization, under 
                 the guidance of <b>{{mem.guide}}</b>. The duration of internship was from <b>{{ mem.start_date }}</b> to<b> 
                     {{ mem.end_date }}</b>.<br><br>
-                  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mr./Ms {{mem.fullname}}</b> has exibited professional behaviour during the period of internship.
-                  The contribution that he/she made to the organization during this tenture has been <b>{{mem.rating}}</b>.
+                  <p style="text-indent:2cm;"><b>Mr./Ms {{mem.fullname}}</b> has exibited professional behaviour during the period of internship.
+                  The contribution that he/she made to the organization during this tenture has been <b>{{mem.rating}}</b>.</p>
                     <br>
                     <br>
                     <br>
                     <br>
                     
-                    <span><b>Anand 
+                    <span><b>{{mem.hrmanager}}
                     <br>
                     HR Manager</b> 
                     <div>
